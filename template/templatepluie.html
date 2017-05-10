@@ -1,0 +1,10 @@
+<table style="border : 1px solid black; text-align:center;margin: 0 auto;">
+    <tr style="border : 1px solid black;">
+        <td style="border : 1px solid black;">date/heure</td>
+        <td style="border : 1px solid black;">pluie</td>
+    </tr>
+    <tr ng-repeat="(key,value) in meteo"  ng-if="$index >4" style="border : 1px solid black;">
+        <td style="border : 1px solid black;">{{key}}</td>
+        <td style="border : 1px solid black;">{{value.pluie}} mm</td>
+    </tr>
+</table>

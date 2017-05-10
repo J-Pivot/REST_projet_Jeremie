@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <title>TPfreddy</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+    <style>
+        .isfirst{
+            background-color: green;
+            color : aliceblue
+        }
+        .isodd{
+            background-color: blue;
+            color : aliceblue
+        }
+        fieldset{
+               font-weight: bold;
+               width: 60%;
+               margin: 20px auto; 
+               box-shadow: 5px 5px 5px #4d4d4d;
+        }
+        #search{
+            text-align: center;
+        }
+        legend{
+            font-family: "Brush Script MT", cursive;
+	        font-style: normal;
+	        font-variant: normal;
+	        font-weight: 500;
+	        line-height: 26.4px;
+        }
+        h1{
+            color: #1e1e1e;
+            font-family: 'Gabriela', serif;
+            font-size: 50px;
+            letter-spacing: .10em;
+            text-align: center;
+        }
+        #page{
+            display : block;
+            color : #666;
+            text-decoration : none;
+            padding : 4px;
+
+        }
+    </style>
+  </head>
+
+<body ng-app="ModuleAngular">
+    <div ng-controller="FirstCtrl">
+        <h1>TP TEST</h1>
+       <!-- <h1 result ng-if="haveResult">Bonjour {{result.prenom}} {{result.nom}}</h1>
+        <br/>
+        <br/>-->
+          <fieldset>
+                <legend><h2>Formulaire</h2></legend>
+                <br/>
+            
+              <label for ="nom"><strong>Nom : </strong></label>
+                <input type="text" name="nom" ng-model="identite.nom">
+                <br/>
+                <br/>
+
+              <label for ="prenom"><strong>Prenom : </strong></label>
+                <input type="text" name="prenom" ng-model="identite.prenom">
+                <br/>
+                <br/>
+                
+              <label for ="age"><strong>Age : </strong></label>
+                <input type="text" name="age" ng-model="identite.age">
+                <br/>
+                <br/>
+
+
+              <input type="button" ng-click="action()" value="Valider">
+                <br/>
+                <br/>
+
+          </fieldset>
+
+          <div>
+              <table>
+                  <tr ng-repeat="user in liste|filter:search|orderBy:'-nom'" ng-class="{'isfirst':$first,'isodd':$odd}" style="text-align :center"> 
+                      <td >
+                          {{user.nom}}
+                      </td>
+                      <td>
+                          {{user.prenom}}
+                    </td>
+                    <td>
+                        <img ng-src ="{{user.humain | toIconFilter}}">
+                    </td>
+                    </tr>
+                </table>
+            <div id="search">
+                <label for="inpSearch">Search #</label>
+                <input type="text" id="inpSearch" ng-model="search">
+                <select ng-model="search">
+                    <option value="humain">humain</option>
+                    <option value="chat">chat</option>
+                </select>
+            </div>        
+      </div>
+      <br/>
+    <linkdirective class="linkdirective" linkdirective-title="title" number="6" style="text-align:center;"> </linkdirective>
+    <br>
+     <div style="text-align:center;"> <strong  > {{hello}} bernard </strong></div>
+      <ma-directive style="text-align:center;" >bernard </ma-directive>
+        <br/>
+        <div id="page">
+            <nav style="text-align:center;">
+                <a href="#/page1" > temperature</a>
+                <a href="#/"  > pluie </a>
+                </div>
+            </nav>
+            <div ng-view>
+            </div>
+            
+        </div> 
+
+     </div>
+        
+       <script src="filtre/toIconFilter.js"></script>
+       <script src="filtre/celKelFilter.js"></script>
+       <script src="service/helloService.js"></script>
+       <script src="service/DataService.js"></script>
+       <script src="directive/maDirective.js"></script>
+       <script src="directive/meteodirectivetemp.js"></script>
+       <script src="directive/pluiedirective.js"></script>
+       <script src="directive/linkdirective.js"></script>
+       <script src="controller/FirstCtrl.js"></script>
+       <script src="controller/HomeController.js"></script>
+       <script src="module/ModuleAngular.js"></script>
+
+    </body>
+</html>
