@@ -17,9 +17,13 @@
         </div>
     </form>
     <br>
-<div style="text-align:center;"><img ng-if="!charging" src="progressbar.gif" ></div>
+<div style="text-align:center;" ng-if="!charging">
+    <span> veuillez patienter svp</span> 
+    <br>
+    <img  src="progressbar.gif" >
+</div>
 <div ng-if="charging" class="vignets">
     <meteodirectivetemp></meteodirectivetemp>
 </div>
-        
+         
            
